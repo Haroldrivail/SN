@@ -154,7 +154,6 @@ img {
 
 .more::after {
     content: " >";
-    margin-left: 5px;
 }
 
 .block-img {
@@ -173,26 +172,100 @@ img {
     text-align: center;
 }
 
+.block-centered .block-body {
+    max-width: 640px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.ingredients-menu {
+    margin: 40px 0;
+    font-weight: 600;
+    color: #383838;
+    text-align: center;
+}
+
+.ingredients-menu a {
+    display: inline-block;
+    margin: 0 5px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.ingredients-menu a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    opacity: 0;
+    background-color: #c89446;
+    transition: 0.3s;
+}
+
+.ingredients-menu .active::after,
+.ingredients-menu a:hover::after {
+    bottom: 0;
+    opacity: 1;
+}
+
+.menu-summary-item {
+    padding-left: 120px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.menu-summary-title {
+    font-size: 1.125rem;
+    color: #383838;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+}
+
+.menu-summary-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+}
+
+.menu-summary-price {
+    font-size: 2.5rem;
+    font-family: "Pinyon Script", serif;
+    color: #c89446;
+    line-height: 1;
+}
+
+.menu-summary p {
+    margin-top: 0;
+    font-size: 0.875rem;
+}
+
+/**---------Responsive--------*/
+
 @media only screen and (min-width: 768px) {
     html {
         font-size: 16px;
     }
 
-    /* body {
+    body {
         background: linear-gradient(
                 to top,
                 rgba(255, 255, 255, 0.6),
                 rgba(255, 255, 255, 0.6)
             ),
             url(screenshot.png) top center no-repeat;
-    } */
-    body {
+    }
+
+    /* body {
         background: linear-gradient(
             to top,
             rgba(255, 255, 255, 0.6),
             rgba(255, 255, 255, 0.6)
         );
-    }
+    } */
 
     .topbar {
         display: flex;
@@ -233,9 +306,19 @@ img {
         letter-spacing: 4px;
     }
 
-    /*** Home Section ***/
+    /***Home Section***/
+
+    .home-section {
+        background: fixed top 95px right 0px url(img/oranges.jpg) no-repeat,
+            fixed top 640px left 0px url(img/spices.jpg) no-repeat;
+    }
+
     .block {
         margin-bottom: 100px;
+    }
+
+    .block-last {
+        margin-bottom: 60px;
     }
 
     .block-left,
@@ -247,7 +330,6 @@ img {
 
     .block-img {
         border: none;
-        /* flex: none; */
         position: relative;
     }
 
@@ -303,13 +385,16 @@ img {
         margin-top: 1.3rem;
     }
 
-    .home-section {
-        background: fixed top 95px right 0px url(img/oranges.jpg) no-repeat,
-            fixed top 640px left 0px url(img/spices.jpg) no-repeat;
+    .ingredients-menu a {
+        margin: 0 33px;
+    }
+
+    .menu-summary {
+        padding: 85px 0;
     }
 }
 
-/*---------On Scroll--------*/
+/**---------Animation--------*/
 
 @keyframes fadeIn {
     0% {
