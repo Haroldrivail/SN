@@ -1,0 +1,468 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    font-family: "Source Sans 3", sans-serif;
+    line-height: 1.625;
+    margin: 0;
+    color: #6f6f6f;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.header {
+    background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.922045),
+            rgba(54, 54, 54, 0.5) 39.24%,
+            rgba(28, 28, 28, 0.4)
+        ),
+        url(img/eggs.jpg) center / cover no-repeat;
+    color: #fff;
+}
+
+.topbar {
+    padding: 18px 20px;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.topbar a:hover {
+    color: #c89446;
+}
+
+.topbar .logo {
+    padding-bottom: 15px;
+}
+
+.menu .menu-item {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.menu .menu-item:hover {
+    color: #c89446;
+}
+
+.menu .menu-button {
+    border: solid 1px #c89446;
+    padding: 7px 10px;
+    margin-top: 0;
+    transition-property: color, background-color;
+}
+
+.menu .menu-button:hover {
+    background: #c89446;
+    color: #fff;
+}
+
+.baseline {
+    padding: 50px 0 70px 0;
+    text-align: center;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.baseline .baseline-welcome {
+    font-family: "Pinyon Script", serif;
+    color: #c89446;
+    font-size: 2.2rem;
+    display: block;
+    text-transform: none;
+}
+
+.baseline .baseline-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 11px;
+    padding-bottom: 10px;
+    display: block;
+}
+
+.baseline .baseline-slogan {
+    font-size: 1rem;
+    font-weight: 300;
+    display: block;
+    letter-spacing: 2px;
+}
+
+.home-section {
+    padding-top: 9px;
+}
+
+.container-small {
+    margin: auto;
+    padding: 0 20px;
+    max-width: 960px;
+}
+
+.block {
+    margin-bottom: 50px;
+}
+
+.title {
+    font-size: 1.75rem;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 1rem 0 0 0;
+}
+
+.title span {
+    font-family: "Pinyon Script", serif;
+    color: #c89446;
+    font-size: 2.5rem;
+    display: block;
+    text-transform: none;
+}
+
+.title::before {
+    content: "";
+    display: inline-block;
+    width: 26px;
+    height: 2px;
+    background: #c89446;
+    margin-bottom: 0.5rem;
+}
+
+.more {
+    color: #c89446;
+}
+
+.more:hover {
+    text-decoration: underline;
+}
+
+.more::after {
+    content: " >";
+    margin-left: 5px;
+}
+
+.block-img {
+    max-width: 350px;
+    margin: 0 auto;
+    border: solid 1px #c89446;
+}
+
+.block-img img {
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.block-centered {
+    text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    /* body {
+        background: linear-gradient(
+                to top,
+                rgba(255, 255, 255, 0.6),
+                rgba(255, 255, 255, 0.6)
+            ),
+            url(screenshot.png) top center no-repeat;
+    } */
+    body {
+        background: linear-gradient(
+            to top,
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.6)
+        );
+    }
+
+    .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1150px;
+        margin: 0 auto;
+        letter-spacing: 2px;
+    }
+
+    .topbar .logo {
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .menu .menu-button {
+        margin-top: 0;
+        margin-right: 0;
+    }
+
+    .baseline {
+        padding: 125px 0 227px;
+    }
+
+    .baseline .baseline-welcome {
+        font-size: 3.75rem;
+        padding-right: 16px;
+    }
+
+    .baseline .baseline-name {
+        font-size: 4.375rem;
+        letter-spacing: 12.5px;
+        padding-top: 13px;
+        padding-bottom: 17px;
+    }
+    .baseline .baseline-slogan {
+        font-size: 1.5rem;
+        letter-spacing: 4px;
+    }
+
+    /*** Home Section ***/
+    .block {
+        margin-bottom: 100px;
+    }
+
+    .block-left,
+    .block-right {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .block-img {
+        border: none;
+        /* flex: none; */
+        position: relative;
+    }
+
+    .block-img::before {
+        content: "";
+        display: block;
+        border: solid 1px #c89446;
+        position: absolute;
+        top: -30px;
+        left: -30px;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .block-right .block-img::before {
+        left: auto;
+        right: -30px;
+    }
+
+    .block-left .block-img {
+        margin-left: 30px;
+    }
+
+    .block-right .block-img {
+        margin-right: 30px;
+    }
+
+    .block-left .block-body {
+        margin-left: 20px;
+    }
+
+    .block-left .block-body,
+    .block-right .block-body {
+        width: 445px;
+        flex: none;
+    }
+
+    .block-right .block-body {
+        margin-right: 20px;
+        order: -1;
+    }
+
+    .title::before {
+        margin-bottom: 10px;
+    }
+
+    .title {
+        margin-bottom: 1.2rem;
+    }
+
+    .more {
+        margin-top: 1.3rem;
+    }
+
+    .home-section {
+        background: fixed top 95px right 0px url(img/oranges.jpg) no-repeat,
+            fixed top 640px left 0px url(img/spices.jpg) no-repeat;
+    }
+}
+
+/*---------On Scroll--------*/
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        scale: 0.8;
+    }
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        scale: 1;
+    }
+    100% {
+        opacity: 0;
+        scale: 0.8;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideInBottom {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOutBottom {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes slideInTop {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOutTop {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes slideInTopRight {
+    0% {
+        transform: translate(-100%, -100%);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes slideOutTopRight {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, -100%);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .block-img {
+        animation: fadeIn 1.2s linear;
+        animation-timeline: view();
+        animation-range: entry 0 cover 25%;
+    }
+
+    .block-left .block-body {
+        animation: slideInRight 1.2s linear;
+        animation-timeline: view();
+        animation-range: entry 0 cover 25%;
+    }
+
+    .block-right .block-body {
+        animation: slideInLeft 1.2s linear;
+        animation-timeline: view();
+        animation-range: entry 0 cover 25%;
+    }
+
+    .block-centered {
+        animation: slideInBottom 1.2s linear;
+        animation-timeline: view();
+        animation-range: entry 0 cover 25%;
+    }
+}
