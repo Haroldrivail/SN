@@ -52,12 +52,15 @@ img {
     padding-bottom: 15px;
 }
 
-.menu .menu-item {
+.menu .menu-item,
+.ingredients-menu a {
     display: inline-block;
     margin: 0 15px;
+    transition: color 0.3s;
 }
 
-.menu .menu-item:hover {
+.menu .menu-item:hover,
+.ingredients-menu a:hover {
     color: #c89446;
 }
 
@@ -111,6 +114,12 @@ img {
     margin: auto;
     padding: 0 20px;
     max-width: 960px;
+}
+
+.container {
+    margin: auto;
+    padding: 0 20px;
+    max-width: 1150px;
 }
 
 .block {
@@ -168,6 +177,8 @@ img {
     z-index: 1;
 }
 
+/**---------Menu--------*/
+
 .block-centered {
     text-align: center;
 }
@@ -186,8 +197,6 @@ img {
 }
 
 .ingredients-menu a {
-    display: inline-block;
-    margin: 0 5px;
     position: relative;
     text-transform: uppercase;
 }
@@ -221,7 +230,7 @@ img {
     font-size: 1.125rem;
     color: #383838;
     font-weight: bold;
-    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
 }
 
 .menu-summary-img {
@@ -239,33 +248,44 @@ img {
 }
 
 .menu-summary p {
-    margin-top: 0;
+    margin: 0;
+    padding-bottom: 1rem;
     font-size: 0.875rem;
 }
 
 /**---------Responsive--------*/
+
+@media (max-width: 425px) {
+    /* .menu-summary-item {
+        width: 100%;
+        padding: 0;
+    } */
+    .topbar {
+        flex-direction: column;
+    }
+}
 
 @media only screen and (min-width: 768px) {
     html {
         font-size: 16px;
     }
 
-    body {
+    /* body {
         background: linear-gradient(
                 to top,
                 rgba(255, 255, 255, 0.6),
                 rgba(255, 255, 255, 0.6)
             ),
             url(screenshot.png) top center no-repeat;
-    }
+    } */
 
-    /* body {
+    body {
         background: linear-gradient(
             to top,
             rgba(255, 255, 255, 0.6),
             rgba(255, 255, 255, 0.6)
         );
-    } */
+    }
 
     .topbar {
         display: flex;
@@ -305,8 +325,6 @@ img {
         font-size: 1.5rem;
         letter-spacing: 4px;
     }
-
-    /***Home Section***/
 
     .home-section {
         background: fixed top 95px right 0px url(img/oranges.jpg) no-repeat,
@@ -389,8 +407,67 @@ img {
         margin: 0 33px;
     }
 
+    .menu-summary::before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+        width: 420px;
+        height: 420px;
+        border: solid 1px #c89446;
+        transform: translate(-50%, -260px) rotate(45deg);
+    }
+
     .menu-summary {
         padding: 85px 0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        position: relative;
+        background: #fff;
+    }
+
+    .menu-summary-item {
+        padding-left: 192px;
+        width: calc(50% - 35px);
+        margin-bottom: 110px;
+    }
+
+    .menu-summary-item:nth-child(2n) {
+        padding-left: 0;
+        padding-right: 192px;
+        text-align: right;
+    }
+
+    .menu-summary-img {
+        width: 160px;
+    }
+
+    .menu-summary-item:nth-child(2n) .menu-summary-img {
+        left: auto;
+        right: 0;
+    }
+
+    .menu-summary-title {
+        margin-top: 0;
+        line-height: 1.2;
+        background: #fff;
+        margin-bottom: 0;
+    }
+
+    .menu-summary p {
+        background: #fff;
+    }
+
+    .menu-summary-price {
+        padding-top: 4px;
+        width: 85px;
+        background: #fff;
+    }
+
+    .menu-summary-item:nth-child(2n) .menu-summary-price {
+        margin-left: auto;
     }
 }
 
@@ -528,25 +605,27 @@ img {
 
 @media (prefers-reduced-motion: no-preference) {
     .block-img {
-        animation: fadeIn 1.2s linear;
+        animation: fadeIn 1.5s linear;
         animation-timeline: view();
         animation-range: entry 0 cover 25%;
     }
 
-    .block-left .block-body {
-        animation: slideInRight 1.2s linear;
+    .block-left .block-body,
+    .menu-summary-item:nth-child(2n) {
+        animation: slideInRight 1.5s linear;
         animation-timeline: view();
         animation-range: entry 0 cover 25%;
     }
 
-    .block-right .block-body {
-        animation: slideInLeft 1.2s linear;
+    .block-right .block-body,
+    .menu-summary-item:nth-child(2n + 1) {
+        animation: slideInLeft 1.5s linear;
         animation-timeline: view();
         animation-range: entry 0 cover 25%;
     }
 
     .block-centered {
-        animation: slideInBottom 1.2s linear;
+        animation: slideInBottom 1.5s linear;
         animation-timeline: view();
         animation-range: entry 0 cover 25%;
     }
