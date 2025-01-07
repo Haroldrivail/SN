@@ -2,6 +2,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    outline: none;
 }
 
 html {
@@ -142,6 +143,7 @@ img {
     font-size: 2.5rem;
     display: block;
     text-transform: none;
+    font-weight: normal;
 }
 
 .title::before {
@@ -157,12 +159,22 @@ img {
     color: #c89446;
 }
 
-.more:hover {
+.more a:hover {
     text-decoration: underline;
 }
 
-.more::after {
-    content: " >";
+.more a::after {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 9px;
+    margin-left: 0.5em;
+    background: url(img/arrow-right.svg) no-repeat center center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.more a:hover::after {
+    transform: translateX(3px);
 }
 
 .block-img {
@@ -253,17 +265,185 @@ img {
     font-size: 0.875rem;
 }
 
-/**---------Responsive--------*/
-
-@media (max-width: 425px) {
-    /* .menu-summary-item {
-        width: 100%;
-        padding: 0;
-    } */
-    .topbar {
-        flex-direction: column;
-    }
+.reservation {
+    background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.922045),
+            rgba(54, 54, 54, 0.5) 39.24%,
+            rgba(28, 28, 28, 0.4)
+        ),
+        url(img/reservation.jpg) center / cover no-repeat;
+    color: #fff.6;
+    padding: 50px 0;
 }
+
+.reservation .title {
+    color: #fff;
+}
+
+.reservation input,
+.reservation select {
+    padding: 0 0.5rem;
+    width: 100%;
+    margin-bottom: 15px;
+    border: solid 1px #6f6f6f;
+    background: transparent;
+    text-transform: uppercase;
+    height: 40px;
+    color: #fff;
+    font-size: 0.875rem;
+    font-family: "Source Sans Pro", serif;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 2px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.reservation select {
+    background: no-repeat right 0.5rem center url(img/select.svg);
+}
+
+select option {
+    color: #000;
+}
+
+.reservation input:focus,
+.reservation select:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #c89446;
+}
+
+.reservation .button {
+    width: 100%;
+}
+
+.button {
+    font-weight: 600;
+    font-size: 0.875em;
+    color: #fff;
+    background: #c89446;
+    border: solid 2px transparent;
+    padding: 11px 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: transparent;
+    border: solid 2px #c89446;
+}
+
+.reservation .block-centered .block-body {
+    max-width: none;
+}
+
+.reservation p {
+    max-width: 625px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.recipes {
+    margin: 50px 0;
+    background: no-repeat top left / 90vw auto url(img/news-bg.jpg);
+}
+
+.recipes-list {
+    font-weight: 300;
+    font-size: 1.125rem;
+    max-width: 920px;
+    margin-left: auto;
+}
+
+.recipes-list strong {
+    font-weight: 700;
+    color: #383838;
+}
+
+.recipes-date strong {
+    font-size: 1.75rem;
+    display: block;
+    line-height: 1.2;
+}
+
+.recipes-list__item {
+    border-bottom: solid 1px #f2f2f2;
+    margin-top: 1em;
+    padding-bottom: 1em;
+    display: flex;
+}
+
+.recipes-list__item p {
+    margin-top: 0;
+}
+
+.recipes-list__item:last-child {
+    border-bottom: 0;
+}
+
+.recipes-date {
+    width: 60px;
+    flex: none;
+    line-height: 1;
+}
+
+.recipes .more {
+    display: block;
+    text-align: right;
+    margin-top: 60px;
+}
+
+.map {
+    width: 100%;
+    height: 460px;
+}
+
+footer {
+    background: #383838 bottom right no-repeat;
+    font-weight: 300;
+    color: #fff;
+    padding: 40px 0;
+}
+
+.footer-column {
+    margin-bottom: 2rem;
+}
+
+.footer-title {
+    color: #c89446;
+    font-weight: bold;
+    padding-bottom: 1.25em;
+    text-transform: uppercase;
+}
+
+footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+footer ul li::before {
+    content: "- ";
+}
+
+footer a {
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #c89446;
+}
+
+.footer-credits {
+    font-size: 0.8em;
+}
+
+.footer-credits span {
+    font-weight: bold;
+}
+
+/**---------Responsive--------*/
 
 @media only screen and (min-width: 768px) {
     html {
@@ -425,7 +605,6 @@ img {
         justify-content: space-between;
         flex-wrap: wrap;
         position: relative;
-        background: #fff;
     }
 
     .menu-summary-item {
@@ -469,6 +648,96 @@ img {
     .menu-summary-item:nth-child(2n) .menu-summary-price {
         margin-left: auto;
     }
+
+    .block-chief {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+    }
+
+    .block-chief .block-img::before {
+        display: none;
+    }
+
+    .block-chief .block-img {
+        flex: none;
+        width: 404px;
+        order: 2;
+    }
+
+    .reservation {
+        padding: 100px 0;
+    }
+
+    .reservation-form-row {
+        margin: 64px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .reservation-form-row input,
+    .reservation-form-row select,
+    .reservation .button {
+        width: calc((100% / 3) - 20px);
+        margin-bottom: 0;
+    }
+
+    .recipes {
+        padding: 60px 0;
+        background-size: 589px auto;
+        background-attachment: fixed;
+        margin: 0;
+    }
+
+    .recipes .title,
+    .recipes .container > p {
+        text-align: right;
+        max-width: 716px;
+        margin-left: auto;
+    }
+
+    .recipes-date {
+        width: 95px;
+    }
+
+    .recipes-list {
+        margin-top: 64px;
+        margin-bottom: 64px;
+    }
+
+    .recipes-list__item {
+        margin-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .recipes-list__item:last-child {
+        border-bottom: 0;
+    }
+
+    footer {
+        background-image: url(img/splash.png);
+    }
+
+    .footer-columns {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer-column {
+        width: calc(100% / 4);
+        flex: none;
+        margin-right: 50px;
+    }
+
+    .footer-column:first-child {
+        width: calc(100% / 2.5);
+    }
+
+    .footer-column:last-child {
+        margin-right: 0;
+        flex: none;
+    }
 }
 
 /**---------Animation--------*/
@@ -476,7 +745,7 @@ img {
 @keyframes fadeIn {
     0% {
         opacity: 0;
-        scale: 0.8;
+        scale: 0.5;
     }
     100% {
         opacity: 1;
@@ -491,7 +760,7 @@ img {
     }
     100% {
         opacity: 0;
-        scale: 0.8;
+        scale: 0.5;
     }
 }
 
@@ -618,7 +887,8 @@ img {
     }
 
     .block-right .block-body,
-    .menu-summary-item:nth-child(2n + 1) {
+    .menu-summary-item:nth-child(2n + 1),
+    .block-chief .block-body {
         animation: slideInLeft 1.5s linear;
         animation-timeline: view();
         animation-range: entry 0 cover 25%;
