@@ -27,7 +27,8 @@ img {
     height: auto;
 }
 
-.header {
+.header,
+.header-recipe, .reservation {
     background: linear-gradient(
             180deg,
             rgba(0, 0, 0, 0.922045),
@@ -36,6 +37,16 @@ img {
         ),
         url(img/eggs.jpg) center / cover no-repeat;
     color: #fff;
+}
+
+.header-recipe {
+    background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.922045),
+            rgba(54, 54, 54, 0.5) 39.24%,
+            rgba(28, 28, 28, 0.4)
+        ),
+        url(img/salad-chicken.jpg) center / cover no-repeat;
 }
 
 .topbar {
@@ -68,8 +79,7 @@ img {
 .menu .menu-button {
     border: solid 1px #c89446;
     padding: 7px 10px;
-    margin-top: 0;
-    transition-property: color, background-color;
+    transition: color 0.3s, background-color 0.3s;
 }
 
 .menu .menu-button:hover {
@@ -78,7 +88,7 @@ img {
 }
 
 .baseline {
-    padding: 50px 0 70px 0;
+    padding: 50px 0 70px;
     text-align: center;
     line-height: 1;
     text-transform: uppercase;
@@ -111,15 +121,17 @@ img {
     padding-top: 9px;
 }
 
-.container-small {
+.container-small,
+.container {
     margin: auto;
     padding: 0 20px;
+}
+
+.container-small {
     max-width: 960px;
 }
 
 .container {
-    margin: auto;
-    padding: 0 20px;
     max-width: 1150px;
 }
 
@@ -134,7 +146,7 @@ img {
     color: #000;
     font-weight: bold;
     text-transform: uppercase;
-    margin: 1rem 0 0 0;
+    margin: 1rem 0 0;
 }
 
 .title span {
@@ -189,16 +201,13 @@ img {
     z-index: 1;
 }
 
-/**---------Menu--------*/
-
 .block-centered {
     text-align: center;
 }
 
 .block-centered .block-body {
     max-width: 640px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
 }
 
 .ingredients-menu {
@@ -341,13 +350,16 @@ select option {
 
 .reservation p {
     max-width: 625px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 .recipes {
     margin: 50px 0;
     background: no-repeat top left / 90vw auto url(img/news-bg.jpg);
+}
+
+.recipes a:hover {
+    text-decoration: underline;
 }
 
 .recipes-list {
@@ -443,7 +455,109 @@ footer a:hover {
     font-weight: bold;
 }
 
-/**---------Responsive--------*/
+.block-ingredients {
+    border: solid 1px #c89446;
+    padding: 35px 20px;
+    font-weight: 600;
+    color: #383838;
+}
+
+.block-ingredients ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.block-ingredients li {
+    padding: 5px 0;
+}
+
+.block-ingredients span {
+    width: 35px;
+    text-align: right;
+    display: inline-block;
+    margin-right: 20px;
+    font-weight: 300;
+}
+
+.section-overflow {
+    padding: 20px 0;
+}
+
+.block-video {
+    text-align: center;
+    position: relative;
+    background: #383838;
+    display: block;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.block-video img {
+    box-shadow: 0 0 30px rgba(128, 128, 128, 0.5);
+    opacity: 0.6;
+    display: block;
+    transition: opacity 0.3s;
+}
+
+.block-video::after {
+    content: "";
+    background: url(img/play.png) center center no-repeat;
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    top: calc(50% - 31px);
+    left: calc(50% - 31px);
+    transition: transform 0.3s;
+}
+
+.block-video:hover::after {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.block-video:hover img {
+    opacity: 0.9;
+}
+
+.recipes-mosaic p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.recipes-mosaic .more {
+    margin-top: 0.5rem;
+}
+
+.pagination {
+    list-style: none;
+    margin: 30px 0;
+    padding: 0;
+    text-align: center;
+}
+
+.pagination li {
+    display: inline-block;
+}
+
+.pagination a {
+    text-decoration: none;
+    border: solid 1px #c89446;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-indent: -3000px;
+    transition: background-color 0.3s;
+    margin: 0 15px;
+}
+
+.pagination a.active,
+.pagination a:hover {
+    background: #c89446;
+}
 
 @media only screen and (min-width: 768px) {
     html {
@@ -498,8 +612,7 @@ footer a:hover {
     .baseline .baseline-name {
         font-size: 4.375rem;
         letter-spacing: 12.5px;
-        padding-top: 13px;
-        padding-bottom: 17px;
+        padding: 13px 0 17px;
     }
     .baseline .baseline-slogan {
         font-size: 1.5rem;
@@ -613,7 +726,7 @@ footer a:hover {
         margin-bottom: 110px;
     }
 
-    .menu-summary-item:nth-child(2n) {
+    .menu-summary .menu-summary-item:nth-child(2n) {
         padding-left: 0;
         padding-right: 192px;
         text-align: right;
@@ -623,7 +736,7 @@ footer a:hover {
         width: 160px;
     }
 
-    .menu-summary-item:nth-child(2n) .menu-summary-img {
+    .menu-summary .menu-summary-item:nth-child(2n) .menu-summary-img {
         left: auto;
         right: 0;
     }
@@ -635,17 +748,17 @@ footer a:hover {
         margin-bottom: 0;
     }
 
-    .menu-summary p {
+    .menu-summary p,
+    .menu-summary-price {
         background: #fff;
     }
 
     .menu-summary-price {
         padding-top: 4px;
         width: 85px;
-        background: #fff;
     }
 
-    .menu-summary-item:nth-child(2n) .menu-summary-price {
+    .menu-summary .menu-summary-item:nth-child(2n) .menu-summary-price {
         margin-left: auto;
     }
 
@@ -738,136 +851,178 @@ footer a:hover {
         margin-right: 0;
         flex: none;
     }
+
+    .block-ingredients {
+        padding: 35px 40px;
+        width: 350px;
+    }
+
+    .block-ingredients span {
+        margin-right: 50px;
+    }
+
+    .block-ingredients li {
+        padding: 10px 0;
+    }
+
+    .section-overflow {
+        padding: 0;
+        margin-top: -20px;
+    }
+
+    .block-right .block-video {
+        margin-left: 28px;
+    }
+
+    .recipes-mosaic {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: -60px;
+    }
+
+    .recipes-mosaic .menu-summary-item {
+        width: calc(50% - 25px);
+        margin-bottom: 64px;
+        font-size: 0.875em;
+        padding-left: 150px;
+    }
+
+    .recipes-mosaic .menu-summary-img {
+        width: 125px;
+    }
+
+    .pagination {
+        margin: 80px 0;
+    }
 }
 
-/**---------Animation--------*/
-
 @keyframes fadeIn {
-    0% {
+    from {
         opacity: 0;
-        scale: 0.5;
+        transform: scale(0.5);
     }
-    100% {
+    to {
         opacity: 1;
-        scale: 1;
+        transform: scale(1);
     }
 }
 
 @keyframes fadeOut {
-    0% {
+    from {
         opacity: 1;
-        scale: 1;
+        transform: scale(1);
     }
-    100% {
+    to {
         opacity: 0;
-        scale: 0.5;
+        transform: scale(0.5);
     }
 }
 
 @keyframes slideIn {
-    0% {
+    from {
         transform: translateY(-100%);
     }
-    100% {
+    to {
         transform: translateY(0);
     }
 }
 
 @keyframes slideOut {
-    0% {
+    from {
         transform: translateY(0);
     }
-    100% {
+    to {
         transform: translateY(-100%);
     }
 }
 
 @keyframes slideInRight {
-    0% {
+    from {
         transform: translateX(100%);
     }
-    100% {
+    to {
         transform: translateX(0);
     }
 }
 
 @keyframes slideOutRight {
-    0% {
+    from {
         transform: translateX(0);
     }
-    100% {
+    to {
         transform: translateX(100%);
     }
 }
 
 @keyframes slideInLeft {
-    0% {
+    from {
         transform: translateX(-100%);
     }
-    100% {
+    to {
         transform: translateX(0);
     }
 }
 
 @keyframes slideOutLeft {
-    0% {
+    from {
         transform: translateX(0);
     }
-    100% {
+    to {
         transform: translateX(-100%);
     }
 }
 
 @keyframes slideInBottom {
-    0% {
+    from {
         transform: translateY(100%);
     }
-    100% {
+    to {
         transform: translateY(0);
     }
 }
 
 @keyframes slideOutBottom {
-    0% {
+    from {
         transform: translateY(0);
     }
-    100% {
+    to {
         transform: translateY(100%);
     }
 }
 
 @keyframes slideInTop {
-    0% {
+    from {
         transform: translateY(-100%);
     }
-    100% {
+    to {
         transform: translateY(0);
     }
 }
 
 @keyframes slideOutTop {
-    0% {
+    from {
         transform: translateY(0);
     }
-    100% {
+    to {
         transform: translateY(-100%);
     }
 }
 
 @keyframes slideInTopRight {
-    0% {
+    from {
         transform: translate(-100%, -100%);
     }
-    100% {
+    to {
         transform: translate(0, 0);
     }
 }
 
 @keyframes slideOutTopRight {
-    0% {
+    from {
         transform: translate(0, 0);
     }
-    100% {
+    to {
         transform: translate(-100%, -100%);
     }
 }
