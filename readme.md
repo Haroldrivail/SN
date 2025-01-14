@@ -1,14 +1,14 @@
-# Project Name
+# The Fiasco Restaurant Website
 
 ## Description
-A brief description of what the project does and its purpose.
+The Fiasco Restaurant Website is a web application designed to showcase the restaurant's menu, share recipes, and allow customers to make reservations. It provides an engaging and informative online presence for The Fiasco restaurant.
 
 ## Installation
 Instructions on how to install and set up the project.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/SN.git
+git clone https://github.com/Haroldrivail/SN.git
 
 # Navigate to the project directory
 cd SN
@@ -42,7 +42,5 @@ There is no license yet.
 Harold DONGMO - [dongrold@gmail.com](mailto:dongrold@gmail.com)
 
 Project Name: [SN](https://github.com/Haroldrivail/SN)
-
-
 
 Project Link: [https://github.com/Haroldrivail/SN](https://github.com/Haroldrivail/SN)
