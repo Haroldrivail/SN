@@ -19,11 +19,13 @@
                     <a href="/index.html">The Fiasco</a>
                 </div>
                 <nav class="menu">
-                    <a href="/about.html" class="menu-item">About Us</a>
-                    <a href="/menu.html" class="menu-item">Menu</a>
-                    <a href="/recipes.html" class="menu-item">Recipes</a>
-                    <a href="/contact.html" class="menu-item">Contact</a>
-                    <a href="/reserver.html" class="menu-item menu-button"
+                    <a href="#menu-summary" class="menu-item">Menu</a>
+                    <a href="/index.html#chief" class="menu-item">Chief</a>
+                    <a href="/index.html#recipes" class="menu-item">Recipes</a>
+                    <a href="#contact" class="menu-item">Contact</a>
+                    <a
+                        href="/index.html#reservation"
+                        class="menu-item menu-button"
                         >Make Reservation</a
                     >
                 </nav>
@@ -86,7 +88,10 @@
                             </p>
                         </div>
                     </div>
-                    <div class="block block-centered block-last">
+                    <div
+                        class="block block-centered block-last"
+                        id="menu-summary"
+                    >
                         <div class="block-body">
                             <h2 class="title">
                                 <span>Like</span> YOU MAY ALSO LIKE
@@ -180,6 +185,7 @@
                     </ul>
                 </div>
             </section>
+            <div class="to-Top">Top</div>
         </main>
         <footer role="contentinfo">
             <div class="container">
@@ -193,7 +199,9 @@
                         </p>
                     </div>
                     <div class="footer-column">
-                        <div class="footer-title">Contact Info</div>
+                        <div class="footer-title" id="contact">
+                            Contact Info
+                        </div>
                         <p>
                             1234 Altschul, New York, NY 10027-0000 <br />
                             +1 987 654 3210 <br />
@@ -217,5 +225,6 @@
                 </div>
             </div>
         </footer>
+        <script type="text/javascript" src="app.js"></script>
     </body>
 </html>

@@ -7,6 +7,7 @@
 
 html {
     font-size: 14px;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -28,7 +29,8 @@ img {
 }
 
 .header,
-.header-recipe, .reservation {
+.header-recipe,
+.reservation {
     background: linear-gradient(
             180deg,
             rgba(0, 0, 0, 0.922045),
@@ -557,6 +559,19 @@ footer a:hover {
 .pagination a.active,
 .pagination a:hover {
     background: #c89446;
+}
+
+.to-Top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #c89446;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
 }
 
 @media only screen and (min-width: 768px) {
