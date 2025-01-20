@@ -566,12 +566,25 @@ footer a:hover {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #c89446;
+    background-color: rgba(200, 148, 70, 0.6);
     color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     z-index: 1000;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    padding: 10px;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s;
+}
+
+.to-Top:hover {
+    background-color: rgba(200, 148, 70, 0.8);
+}
+
+.to-Top i {
+    font-size: 1.5rem;
 }
 
 @media only screen and (min-width: 768px) {
@@ -912,7 +925,7 @@ footer a:hover {
     }
 }
 
-@keyframes fadeIn {
+/* @keyframes fadeIn {
     from {
         opacity: 0;
         transform: scale(0.5);
@@ -1069,4 +1082,35 @@ footer a:hover {
         animation-timeline: view();
         animation-range: entry 0 cover 25%;
     }
+} */
+
+.reveal [class*="reveal-"] {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.reveal-visible [class*="reveal-"] {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 1s ease-in-out;
+}
+
+.reveal-visible .reveal-2 {
+    transition-delay: 0.1s;
+}
+
+.reveal-visible .reveal-3 {
+    transition-delay: 0.2s;
+}
+
+.reveal-visible .reveal-4 {
+    transition-delay: 0.3s;
+}
+
+.reveal-visible .reveal-5 {
+    transition-delay: 0.4s;
+}
+
+.reveal-visible .reveal-6 {
+    transition-delay: 0.5s;
 }

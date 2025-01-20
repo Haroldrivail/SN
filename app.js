@@ -23,3 +23,26 @@ window.addEventListener("scroll", () => {
 scrollToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+const ratio = 0.1;
+const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: ratio,
+};
+
+const handleIntersection = (entries, observer) => {
+    entries.forEach((entry) => {
+        if (entry.intersectionRatio > ratio) {
+            observer.unobserve(entry.target);
+            entry.target.classList.add("reveal-visible");
+        } else {
+            entry.target.classList.remove("reveal-visible");
+        }
+    });
+};
+
+const observer = new IntersectionObserver(handleIntersection, options);
+document.querySelectorAll('.reveal').forEach((el) => {
+    observer.observe(el);
+});
