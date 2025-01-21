@@ -8,10 +8,10 @@ Instructions on how to install and set up the project.
 
 ```bash
 # Clone the repository
-git clone https://github.com/Haroldrivail/SN.git
+git clone https://github.com/Haroldrivail/The-Fiasco.git
 
 # Navigate to the project directory
-cd SN
+cd The-Fiasco
 
 # Install dependencies
 npm install
@@ -41,6 +41,8 @@ There is no license yet.
 ## Contact
 Harold DONGMO - [dongrold@gmail.com](mailto:dongrold@gmail.com)
 
-Project Name: [SN](https://github.com/Haroldrivail/SN)
+Project Name: [The-Fiasco][def]
 
-Project Link: [https://github.com/Haroldrivail/SN](https://github.com/Haroldrivail/SN)
+Project Link: [https://github.com/Haroldrivail/The-Fiasco][def]
+
+[def]: https://github.com/Haroldrivail/The-Fiasco
