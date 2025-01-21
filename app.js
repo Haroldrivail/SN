@@ -1,10 +1,20 @@
+// window.addEventListener("domcontentloaded", () => {
+//     const scrollToTopBtn = document.querySelector(".to-Top");
+//     const menu = document.querySelector(".header, .header-recipe");
+//     const footer = document.querySelector("footer");
+
+//     const observer = new IntersectionObserver(handleIntersection, options);
+//     document.querySelectorAll(".reveal").forEach((el) => {
+//         observer.observe(el);
+//     });
+// });
+
 const scrollToTopBtn = document.querySelector(".to-Top");
-const menu = document.querySelector(".header, .header-recipe");
-// const menu = document.querySelector(".header .menu, .header-recipe .menu");
+const header = document.querySelector(".header, .header-recipe");
 const footer = document.querySelector("footer");
 
 window.addEventListener("scroll", () => {
-    if (window.scrollY > menu.offsetHeight) {
+    if (window.scrollY > header.offsetHeight) {
         scrollToTopBtn.style.display = "block";
     } else {
         scrollToTopBtn.style.display = "none";
@@ -13,16 +23,17 @@ window.addEventListener("scroll", () => {
     const footerRect = footer.getBoundingClientRect();
     if (footerRect.top < window.innerHeight) {
         scrollToTopBtn.style.bottom = `${
-            window.innerHeight - footerRect.top + 16
-        }px`;
-    } else {
-        scrollToTopBtn.style.bottom = "20px";
+            window.innerHeight - footerRect.top + 8}px`;
     }
 });
 
 scrollToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+// function scrollToTop() {
+//     window.scrollTo({ top: 0, behavior: "smooth" });
+// }
 
 const ratio = 0.1;
 const options = {
@@ -35,14 +46,14 @@ const handleIntersection = (entries, observer) => {
     entries.forEach((entry) => {
         if (entry.intersectionRatio > ratio) {
             observer.unobserve(entry.target);
-            entry.target.classList.add("reveal-visible");
-        } else {
-            entry.target.classList.remove("reveal-visible");
+            entry.target.classList.remove("reveal");
         }
     });
 };
 
+document.documentElement.classList.add("reveal-loaded");
+
 const observer = new IntersectionObserver(handleIntersection, options);
-document.querySelectorAll('.reveal').forEach((el) => {
+document.querySelectorAll(".reveal").forEach((el) => {
     observer.observe(el);
 });

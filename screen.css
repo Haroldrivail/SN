@@ -564,23 +564,23 @@ footer a:hover {
 .to-Top {
     display: none;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    cursor: pointer;
+    text-align: center;
+    bottom: 1rem;
+    right: 1rem;
     background-color: rgba(200, 148, 70, 0.6);
     color: #fff;
     border-radius: 50px;
-    cursor: pointer;
     z-index: 1000;
-    width: 50px;
-    height: 50px;
-    text-align: center;
+    width: 45px;
+    height: 45px;
     padding: 10px;
     transform: translate(-50%, -50%);
-    transition: transform 0.3s;
+    transition: transform 0.3s, background-color 0.3s;
 }
 
 .to-Top:hover {
-    background-color: rgba(200, 148, 70, 0.8);
+    background-color: rgba(200, 148, 70, 1);
 }
 
 .to-Top i {
@@ -1084,33 +1084,44 @@ footer a:hover {
     }
 } */
 
-.reveal [class*="reveal-"] {
-    opacity: 0;
-    transform: translateY(30px);
+.reveal-loaded .reveal [class*="reveal-"] {
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: 0s !important;
 }
 
-.reveal-visible [class*="reveal-"] {
-    opacity: 1;
-    transform: translateY(0);
-    transition: 1s ease-in-out;
+.reveal-loaded [class*="reveal-"] {
+    transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.reveal-visible .reveal-2 {
+.reveal-loaded .reveal-2 {
     transition-delay: 0.1s;
 }
 
-.reveal-visible .reveal-3 {
+.reveal-loaded .reveal-3 {
     transition-delay: 0.2s;
 }
 
-.reveal-visible .reveal-4 {
+.reveal-loaded .reveal-4 {
     transition-delay: 0.3s;
 }
 
-.reveal-visible .reveal-5 {
+.reveal-loaded .reveal-5 {
     transition-delay: 0.4s;
 }
 
-.reveal-visible .reveal-6 {
+.reveal-loaded .reveal-6 {
     transition-delay: 0.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal [class*="reveal-"] {
+        opacity: 1 !important;
+        transform: translateY(30px) !important;
+    }
+
+    [class*="reveal-"] {
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+}
 }
